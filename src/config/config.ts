@@ -15,6 +15,4 @@ const connection: Options = {
   }
 };
 
-console.log(connection);
-
 export default connection;

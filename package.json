@@ -32,11 +32,11 @@
   },
   "scripts": {
     "build": "babel src  --extensions .ts --out-dir dist --copy-files --no-copy-ignored",
-    "prestart": "npm run build",
-    "start": "node dist/server.js",
     "test": "jest",
     "premigrate": "npm run build",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "prestart": "npm run migrate",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

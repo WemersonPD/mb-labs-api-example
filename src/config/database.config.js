@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: '.env.development'
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env.development'
 });
 
 const databaseCredentials = {

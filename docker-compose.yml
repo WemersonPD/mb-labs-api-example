@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    container_name: 'pgsql'
+    environment:
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_USER: pguser
+      POSTGRES_DB: mb-labs
+    ports:
+     - 5432:5432
+    volumes:
+      - /var/lib/pg-data
+    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+     - 9093:8080
+
+  app:
+    build: .
+    command: yarn start
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+    links:
+      - db
