@@ -1,4 +1,4 @@
-{
+{ 
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
@@ -16,13 +16,19 @@
         "./src/controllers/*"
       ],
       "@models/*": [
-        "./src/models/*"
+        "./src/models/index.js"
       ],
       "@views/*": [
         "./src/views/*"
       ],
       "@config/*": [
         "./src/config/*"
+      ],
+      "@repository/*": [
+        "./src/repositories/*"
+      ],
+      "@dtos/*": [
+        "./src/dtos/*"
       ]
     },
     "esModuleInterop": true,

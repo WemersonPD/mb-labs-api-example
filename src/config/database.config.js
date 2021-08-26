@@ -1,14 +1,25 @@
 require('dotenv').config({
-  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env.development'
+  path: '.env.development'
 });
 
-module.exports = {
-  host: process.env.DATABASE_HOST,
-  username: process.env.DATABASE_USERNAME,
+const databaseCredentials = {
+  username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_DB,
+  host: process.env.DATABASE_HOST,
   dialect: process.env.DATABASE_DIALECT || 'postgres',
   define: {
-    timestamps: true
+    timestemps: false
   }
 };
+
+if (process.env.DATABASE_SSL === 'true') {
+  databaseCredentials.dialectOptions = {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  };
+}
+
+module.exports = databaseCredentials;
