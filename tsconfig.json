@@ -23,6 +23,9 @@
       ],
       "@dtos/*": [
         "./src/dtos/*"
+      ],
+      "@services": [
+        "./src/services"
       ]
     },
     "esModuleInterop": true,

@@ -7,9 +7,7 @@ import 'reflect-metadata';
 import { Container } from 'inversify';
 import { InversifyExpressServer } from 'inversify-express-utils';
 
-import './controllers/foo.controller';
-
-// const container = new Container();
+import '@controllers/foo.controller';
 
 export class App {
   private container: any;
@@ -43,4 +41,4 @@ export class App {
 }
 
 
-export default new App().server;
+export default new App().server.build();
