@@ -16,6 +16,21 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"]
+        "semi": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "no-use-before-define": [
+            "warning",
+            {
+                "functions": false,
+                "classes": false,
+                "variables": false
+            }
+        ]
     }
 }
