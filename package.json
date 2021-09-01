@@ -34,10 +34,8 @@
   "scripts": {
     "build": "babel src  --extensions .ts --out-dir dist --copy-files --no-copy-ignored",
     "test": "jest",
-    "premigrate": "npm run build",
-    "migrate": "sequelize db:migrate",
-    "prestarte": "npm run migrate",
-    "start": "npm run build && node dist/server.js"
+    "prestart": "npm run build",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -50,9 +48,6 @@
     "inversify": "^5.1.1",
     "inversify-express-utils": "^6.3.2",
     "morgan": "^1.10.0",
-    "pg": "^8.7.1",
-    "pg-hstore": "^2.3.4",
-    "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.6.5"
+    "reflect-metadata": "^0.1.13"
   }
 }

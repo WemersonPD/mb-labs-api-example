@@ -9,7 +9,6 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import TYPES from './types';
 
 // Controllers
-import '@controllers/foo.controller';
 import '@controllers/product.controller';
 
 // Services
