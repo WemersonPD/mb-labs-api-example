@@ -15,9 +15,6 @@
       "@controllers/*": [
         "./src/controllers/*"
       ],
-      "@models/*": [
-        "./src/models/index.js"
-      ],
       "@config/*": [
         "./src/config/*"
       ],
