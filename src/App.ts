@@ -1,16 +1,25 @@
+import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
 import dotEnv from 'dotenv';
-
-import 'reflect-metadata';
-// import * as bodyParser from 'body-parser';
+import morgan from 'morgan';
 import { Container } from 'inversify';
 import { InversifyExpressServer } from 'inversify-express-utils';
 
+import TYPES from './types';
+
+// Controllers
 import '@controllers/foo.controller';
+import '@controllers/product.controller';
+
+// Services
+import { ProductService } from '@services/products.service';
+
+// Interfaces
+import { ProductServiceInterface } from '@interfaces/productService.interface';
 
 export class App {
-  private container: any;
+  private container: Container;
 
   public server: InversifyExpressServer;
 
@@ -21,13 +30,14 @@ export class App {
 
     this.container = new Container();
 
-    this.configDependencies(this.container);
+    this.container.bind<ProductServiceInterface>(TYPES.ProductServiceInterface).to(ProductService);
+    // this.configDependencies();
     this.configbuildServer(this.container);
   }
 
-  configDependencies(container: any): void {
-    // container.bind<Service>(TYPES.service).to(Service);
-  }
+  // configDependencies(): void {
+  //   ;
+  // }
 
   configbuildServer(container: any): void {
     this.server = new InversifyExpressServer(container, null, { rootPath: '/api/v1' });
@@ -35,10 +45,9 @@ export class App {
     this.server.setConfig((app) => {
       app.use(express.json());
       app.use(cors());
-
+      app.use(morgan('dev'));
     });
   }
 }
-
 
 export default new App().server.build();

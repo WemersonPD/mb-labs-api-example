@@ -24,8 +24,11 @@
       "@dtos/*": [
         "./src/dtos/*"
       ],
-      "@services": [
-        "./src/services"
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
       ]
     },
     "esModuleInterop": true,

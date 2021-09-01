@@ -11,15 +11,18 @@ module.exports = {
     '@babel/preset-typescript'
   ],
   plugins: [
-    "babel-plugin-transform-typescript-metadata",
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    ["module-resolver", {
-      "@controllers": "./src/controllers",
-      "@models": "./src/models",
-      "@services": "./src/services",
-      "@config": "./src/config",
-      "@dtos": "./src/dtos"
+    'babel-plugin-transform-typescript-metadata',
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['module-resolver', {
+      alias: {
+        '@controllers': './src/controllers',
+        '@models': './src/models',
+        '@services': './src/services',
+        '@config': './src/config',
+        '@dtos': './src/dtos',
+        '@interfaces': './src/interfaces'
+      }
     }]
   ],
   ignore: [

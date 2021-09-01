@@ -24,13 +24,6 @@
             "error",
             "never"
         ],
-        "no-use-before-define": [
-            "warning",
-            {
-                "functions": false,
-                "classes": false,
-                "variables": false
-            }
-        ]
+        "no-useless-constructor": "off"
     }
 }

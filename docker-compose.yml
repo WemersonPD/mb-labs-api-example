@@ -19,13 +19,3 @@ services:
     restart: always
     ports:
      - 9090:8080
-
-  app:
-    build: .
-    command: yarn start
-    ports:
-      - 3000:3000
-    volumes:
-      - .:/usr/app
-    links:
-      - db
